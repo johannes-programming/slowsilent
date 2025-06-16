@@ -22,9 +22,9 @@ def main(args: Optional[Iterable] = None) -> None:
     )
     parser.add_argument("infile")
     parser.add_argument("outfile")
-    parser.add_argument("--factor", type=float)
-    parser.add_argument("--length", type=float)
-    parser.add_argument("--threshold", type=int)
+    parser.add_argument("--factor", type=float, default=2.0)
+    parser.add_argument("--length", type=float, default=1.0)
+    parser.add_argument("--threshold", type=int, default=-50)
     ns = parser.parse_args(args=args)
     kwargs = vars(ns)
     run(**kwargs)
@@ -46,7 +46,7 @@ def run(
     original = AudioSegment.from_file(infile)
     silentranges = silence.detect_silence(
         original,
-        min_silence_len=length,
+        min_silence_len=defaultgap,
         silence_thresh=threshold,
     )
     result = calc(
