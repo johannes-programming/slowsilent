@@ -21,12 +21,12 @@ classifiers = [
 dependencies = [
     "pydub>=0.25.1",
 ]
-description = "slowsilent"
+description = "This project extends the silent periods in a sound file."
 keywords = []
 name = "slowsilent"
 readme = "README.rst"
 requires-python = ">=3.11"
-version = "0.0.3"
+version = "0.0.4"
 
 [project.license]
 file = "LICENSE.txt"
